@@ -6,20 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('mq135s', function (Blueprint $table) {
             $table->id();
+            $table->float('ppm', 10, 2); // <--- PASTIKAN BARIS INI ADA
+            $table->integer('value')->nullable(); // <--- PASTIKAN BARIS INI ADA
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('mq135s');
