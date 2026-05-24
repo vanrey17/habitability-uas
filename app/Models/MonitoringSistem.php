@@ -14,13 +14,9 @@ class MonitoringSistem extends Model
 
     // Mass assignable attributes
     protected $fillable = [
-        'mq135_ppm',
         'mq135_value',
-        'mq8_ppm',
         'mq8_value',
-        'mq4_ppm',
         'mq4_value',
-        'mq9_ppm',
         'mq9_value',
         'temperature',
         'humidity',

@@ -42,13 +42,9 @@ class MonitoringSistemController extends Controller
 
         // 2. VALIDASI: Struktur nullable sesuai request kamu
         $validator = Validator::make($request->all(), [
-            'mq135_ppm'   => 'nullable|numeric',
-            'mq135_value' => 'nullable|integer',
-            'mq8_ppm'     => 'nullable|numeric',
-            'mq8_value'   => 'nullable|integer',
-            'mq4_ppm'     => 'nullable|numeric',
+           'mq135_value' => 'nullable|integer', 
+            'mq8_value'   => 'nullable|integer', 
             'mq4_value'   => 'nullable|integer',
-            'mq9_ppm'     => 'nullable|numeric',
             'mq9_value'   => 'nullable|integer',
             'temperature' => 'nullable|numeric',
             'humidity'    => 'nullable|numeric',
@@ -88,13 +84,9 @@ class MonitoringSistemController extends Controller
 
         // 4. PROSES SIMPAN: Menyimpan semua data sensor + hasil kalkulasi Fuzzy ke tabel 'monitoring_logs'
         $monitoring = MonitoringSistem::create([
-            'mq135_ppm'          => $request->mq135_ppm,
             'mq135_value'        => $request->mq135_value,
-            'mq8_ppm'            => $request->mq8_ppm,
             'mq8_value'          => $request->mq8_value,
-            'mq4_ppm'            => $request->mq4_ppm,
             'mq4_value'          => $request->mq4_value,
-            'mq9_ppm'            => $request->mq9_ppm,
             'mq9_value'          => $request->mq9_value,
             'temperature'        => $request->temperature,
             'humidity'           => $request->humidity,
@@ -143,13 +135,9 @@ class MonitoringSistemController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'mq135_ppm'   => 'nullable|numeric',
             'mq135_value' => 'nullable|integer',
-            'mq8_ppm'     => 'nullable|numeric',
             'mq8_value'   => 'nullable|integer',
-            'mq4_ppm'     => 'nullable|numeric',
             'mq4_value'   => 'nullable|integer',
-            'mq9_ppm'     => 'nullable|numeric',
             'mq9_value'   => 'nullable|integer',
             'temperature' => 'nullable|numeric',
             'humidity'    => 'nullable|numeric',
@@ -164,10 +152,10 @@ class MonitoringSistemController extends Controller
         }
 
         $data->update($request->only([
-            'mq135_ppm', 'mq135_value',
-            'mq8_ppm', 'mq8_value',
-            'mq4_ppm', 'mq4_value',
-            'mq9_ppm', 'mq9_value',
+             'mq135_value',
+             'mq8_value',
+             'mq4_value',
+             'mq9_value',
             'temperature', 'humidity'
         ]));
 
